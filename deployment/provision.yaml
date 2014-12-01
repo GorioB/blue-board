@@ -20,7 +20,7 @@
 
   - name: Install required system packages.
     pacman: name={{ item }} state=present update_cache=yes
-    with_items: {{ system_packages }}
+    with_items: "{{ system_packages }}"
 
   - name: Change permissions.
     shell: chown -R {{ project_name }}:{{ project_name }} {{ project_root }}
