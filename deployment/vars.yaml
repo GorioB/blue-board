@@ -1,0 +1,10 @@
+---
+project_name: blue-board
+project_root: /var/projects/blue-board
+project_repo: git@github.com:GorioB/blue-board.git
+system_packages:
+  - base-devel
+  - python2
+  - python2-pip
+  - python2-virtualenv
+  - git

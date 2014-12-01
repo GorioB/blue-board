@@ -1,0 +1,31 @@
+---
+- hosts: all
+  vars_files:
+    - vars.yaml
+  gather_facts: false
+  sudo: true
+
+  tasks:
+  - name: Create the project directory.
+    file: state=directory path={{ project_root }}
+
+  - name: Create user.
+    user: home={{ project_root }}/home/ name={{ project_name }}
+
+  - name: Update the project directory.
+    file: group={{ project_name }} owner={{ project_name }} mode=755 state=directory path={{ project_root }}
+
+  - name: Create the code directory.
+    file: group={{ project_name }} owner={{ project_name }} mode=755 state=directory path={{ project_root }}/code/
+
+  - name: Install required system packages:
+    pacman: name={{ item }} state=present update_cache=yes
+    with_items: {{ system_packages }}
+
+  - name: Change permissions.
+    shell: chown -R {{ project_name }}:{{ project_name }} {{ project_root }}
+
+  - include: deploy.yaml
+
+
+

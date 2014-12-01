@@ -1,0 +1,14 @@
+---
+- hosts: all
+  vars_files:
+    - vars.yaml
+  gather_facts: false
+  sudo: true
+  sudo_user: blue-board
+
+  tasks:
+  - name: Pull repository.
+    git: repo={{ project_repo }} dest={{ project_root }}/code/ version={{ master }}
+
+  - name: Upgrade virtualenv.
+    pip: requirements={{ project_root }}/code/requirements.txt virtualenv={{ project_root }}/venv/ executable=pip2
