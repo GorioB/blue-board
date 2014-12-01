@@ -8,3 +8,5 @@ system_packages:
   - python2-pip
   - python2-virtualenv
   - git
+  - bluez
+  - bluez-utils
