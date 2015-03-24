@@ -10,3 +10,4 @@ system_packages:
   - git
   - bluez
   - bluez-utils
+  - bluez-libs

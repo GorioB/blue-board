@@ -1,0 +1,11 @@
+README
+daemon_command.py
+initd.py
+setup.cfg
+setup.py
+django_initd.egg-info/PKG-INFO
+django_initd.egg-info/SOURCES.txt
+django_initd.egg-info/dependency_links.txt
+django_initd.egg-info/requires.txt
+django_initd.egg-info/top_level.txt
+test/test_initd.py
